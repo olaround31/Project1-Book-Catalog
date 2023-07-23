@@ -1,4 +1,4 @@
-Book Catalog
+#Book Catalog
 
 The BookCatalog class is responsible for managing a collection of books and provides methods to add books and search for books by different criteria.
 
