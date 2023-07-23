@@ -76,8 +76,8 @@ Here's an example of what a "db.json" file might look like:
     },
     {
       "id": 2,
-      "name": "Jane Smith",
-      "email": "jane@example.com",
+      "name": "John Smith",
+      "email": "john@example.com",
       "age": 25
     }
   ],
@@ -120,7 +120,7 @@ To use "script.js" in an HTML file, you can link the JavaScript file using the `
 
 // Example function to greet the user
 function greetUser(name) {
-    alert("Hello, " + name + "! Welcome to our website.");
+    alert("Hello, " + name + "! Welcome to my website.");
 }
 
 // Other JavaScript code goes here
