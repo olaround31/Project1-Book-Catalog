@@ -105,3 +105,48 @@ Front-end frameworks and libraries like React, Vue.js, or Angular can fetch data
 Keep in mind that "db.json" files are typically used in local development environments and are not suitable for production use as they lack essential features of a real database, such as data persistence, security, and scalability. In production, you would typically use a server with a proper database to handle data storage and retrieval.
 
 
+#script.js
+
+"script.js" is a common filename used for an external JavaScript file in web development. Just like "style.css" is used for external CSS files, "script.js" is often used to store JavaScript code that is separate from the HTML file. This practice promotes better organization and maintainability of code and follows the concept of separation of concerns, where HTML is responsible for structure, CSS for styling, and JavaScript for interactivity and dynamic behavior.
+
+JavaScript is a versatile programming language that is commonly used in web development to add interactivity, manipulate the DOM (Document Object Model), handle events, perform AJAX requests, and create more dynamic and engaging web pages.
+
+To use "script.js" in an HTML file, you can link the JavaScript file using the `<script>` element in the `<head>` or `<body>` section of the HTML file. Here's how you can do it:
+
+1. Create the "script.js" file and define your JavaScript code inside it. For example:
+
+```javascript
+// script.js
+
+// Example function to greet the user
+function greetUser(name) {
+    alert("Hello, " + name + "! Welcome to our website.");
+}
+
+// Other JavaScript code goes here
+```
+
+2. Create your HTML file, for example, "index.html," and link the "script.js" file using the `<script>` element. You can place the `<script>` tag either in the `<head>` section or at the end of the `<body>` section:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+    <!-- Other meta tags, CSS links, or other head content may go here -->
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>This is a paragraph with some text.</p>
+    <!-- Additional HTML content goes here -->
+
+    <!-- Linking the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+In this example, the "script.js" file is placed in the same directory as the "index.html" file, but you can specify a different path if needed (e.g., `<script src="path/to/script.js"></script>`).
+
+Once linked, the JavaScript code in "script.js" will be executed when the HTML page is loaded, allowing you to add interactivity and dynamic behavior to your web page. JavaScript can be used to respond to user actions, modify the content of the page, interact with APIs, and much more, making it a fundamental part of modern web development.
+
