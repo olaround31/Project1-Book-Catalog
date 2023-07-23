@@ -14,7 +14,9 @@ Search by author: Users can search for books by entering an author's name. The c
 Each option corresponds to a specific block of code that handles the user input and performs the corresponding actions. The book catalog stores the books in a list, which allows easy addition and searching.
 
 Keep in mind that this is a simple example, and in a real-world scenario, you might want to consider using a database or a more sophisticated data structure to store and manage the book catalog. Additionally, you could enhance the user interface or add more features to make the catalog more user-friendly and versatile.
+
 #index.html
+
 The filename "index.html" typically refers to the main entry point of a website or web application. In web development, it's a convention to name the main HTML file of a website "index.html" because most web servers are configured to look for and serve this file by default when someone accesses the root directory of a domain or a subdirectory.
 
 When a user enters a domain name (e.g., www.example.com) in their web browser, the server will automatically look for the "index.html" file in the root directory and return its content to the user's browser. If the file is found, the browser will render the HTML content and display the website's contents to the user.
@@ -43,10 +45,10 @@ Here's a basic example of what an "index.html" file might contain:
 
     <footer>
         <!-- Footer content and links can go here -->
-        <p>&copy; 2023 My Website. All rights reserved.</p>
+        <p>&copy; 2023 My Website.</p>
     </footer>
 </body>
 </html>
 ```
 
-Please note that the actual content and structure of the "index.html" file will vary depending on the specific website and its design. Additionally, web development practices and technologies may have evolved since my last update in September 2021, so keep that in mind while developing your website.
+
