@@ -51,4 +51,12 @@ Here's a basic example of what an "index.html" file might contain:
 </html>
 ```
 
+#CSS
+
+CSS, which stands for Cascading Style Sheets, is a style sheet language used to control the presentation and layout of HTML documents (including HTML5 and XHTML). It allows web developers to apply styles, such as fonts, colors, spacing, and positioning, to HTML elements, enhancing the visual appearance and user experience of web pages.
+
+The purpose of CSS is to separate the presentation of a webpage from its content, enabling developers to make global changes to the design and layout of a site without modifying the underlying HTML structure. By doing so, CSS promotes better maintainability and reusability of code.
+
+
+
 
