@@ -1,11 +1,11 @@
-// Function to perform the search and update the table
+
 function performSearch() {
     var searchForm = document.getElementById("searchForm");
     var searchCriteria = searchForm.SRCH.value;
     var searchQuery = searchForm.search.value;
     var resultsTable = document.getElementById("resultsTable");
     var tableBody = resultsTable.getElementsByTagName("tbody")[0];
-    tableBody.innerHTML = ""; // Clear existing rows
+    tableBody.innerHTML = ""; 
 
     if (searchQuery) {
         var filteredData = database.filter(function (item) {
@@ -36,7 +36,7 @@ function performSearch() {
             noResultsCell.innerText = "No Record Found";
         }
     } else {
-        // Display all records if no search query provided
+       
         database.forEach(function (item) {
             var row = tableBody.insertRow();
             var nameCell = row.insertCell(0);
@@ -57,8 +57,8 @@ function handleKeydown(event) {
 }
 
 
-// Fetch the JSON data from db.json using Fetch API
-fetch('db.json')
+
+fetch('json.file')
     .then(function(response) {
         return response.json();
     })
@@ -70,7 +70,7 @@ fetch('db.json')
         console.error("Error fetching JSON data:", error);
     });
 
-// Attach the search function to the form's submit event
+
 var searchForm = document.getElementById("searchForm");
 searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
