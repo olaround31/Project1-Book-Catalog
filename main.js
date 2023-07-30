@@ -1,75 +1,84 @@
-// Sample book data (Replace this with your actual book data)
-const bookData = [
-  {
-    title: 'Book 1',
-    author: 'Author A',
-    genre: 'Fiction',
-    year: 2020,
-  },
-  {
-    title: 'Book 2',
-    author: 'Author B',
-    genre: 'Fantasy',
-    year: 2018,
-  },
-  // Add more books as needed
-];
+// Function to perform the search and update the table
+function performSearch() {
+  var searchForm = document.getElementById("searchForm");
+  var searchCriteria = searchForm.SRCH.value;
+  var searchQuery = searchForm.search.value;
+  var resultsTable = document.getElementById("resultsTable");
+  var tableBody = resultsTable.getElementsByTagName("tbody")[0];
+  tableBody.innerHTML = ""; // Clear existing rows
 
-// Function to display books in the catalog
-function displayBooks(books) {
-  const catalogContainer = document.getElementById('bookCatalog');
-  catalogContainer.innerHTML = '';
+  if (searchQuery) {
+      var filteredData = database.filter(function (item) {
+          if (searchCriteria === "Author") {
+              return item.name.toLowerCase().includes(searchQuery.toLowerCase());
+          } else if (searchCriteria === "Title") {
+              return item.title.toLowerCase().includes(searchQuery.toLowerCase());
+          } else if (searchCriteria === "ISBN") {
+              return item.isbn.toLowerCase().includes(searchQuery.toLowerCase());
+          }
+      });
 
-  books.forEach((book) => {
-    const bookElement = document.createElement('div');
-    bookElement.classList.add('book');
-    bookElement.innerHTML = `
-      <h2>${book.title}</h2>
-      <p>Author: ${book.author}</p>
-      <p>Genre: ${book.genre}</p>
-      <p>Year: ${book.year}</p>
-    `;
-    catalogContainer.appendChild(bookElement);
+      if (filteredData.length > 0) {
+          filteredData.forEach(function (item) {
+              var row = tableBody.insertRow();
+              var nameCell = row.insertCell(0);
+              var titleCell = row.insertCell(1);
+              var isbnCell = row.insertCell(2);
+
+              nameCell.innerText = item.name;
+              titleCell.innerText = item.title;
+              isbnCell.innerText = item.isbn;
+          });
+      } else {
+          var row = tableBody.insertRow();
+          var noResultsCell = row.insertCell(0);
+          noResultsCell.colSpan = 3;
+          noResultsCell.innerText = "No Record Found";
+      }
+  } else {
+      // Display all records if no search query provided
+      database.forEach(function (item) {
+          var row = tableBody.insertRow();
+          var nameCell = row.insertCell(0);
+          var titleCell = row.insertCell(1);
+          var isbnCell = row.insertCell(2);
+
+          nameCell.innerText = item.name;
+          titleCell.innerText = item.title;
+          isbnCell.innerText = item.isbn;
+      });
+  }
+}
+
+function handleKeydown(event) {
+if (event.key === " ") {
+  document.body.classList.toggle("dark-mode");
+}
+}
+
+
+// Fetch the JSON data from db.json using Fetch API
+fetch('db.json')
+  .then(function(response) {
+      return response.json();
+  })
+  .then(function(data) {
+      window.database = data;
+      performSearch();
+  })
+  .catch(function(error) {
+      console.error("Error fetching JSON data:", error);
   });
-}
 
-// Initial display of all books when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-  displayBooks(bookData);
+// Attach the search function to the form's submit event
+var searchForm = document.getElementById("searchForm");
+searchForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  performSearch();
 });
 
-// Function to filter books by genre
-function filterBooksByGenre(genre) {
-  const filteredBooks = bookData.filter((book) => book.genre === genre);
-  displayBooks(filteredBooks);
-}
-
-// Function to search for books by title or author
-function searchBooks(query) {
-  const lowercaseQuery = query.toLowerCase();
-  const matchedBooks = bookData.filter(
-    (book) =>
-      book.title.toLowerCase().includes(lowercaseQuery) ||
-      book.author.toLowerCase().includes(lowercaseQuery)
-  );
-  displayBooks(matchedBooks);
-}
-
-// Event listeners for filtering and searching
-document.getElementById('filterByGenre').addEventListener('change', (event) => {
-  const selectedGenre = event.target.value;
-  if (selectedGenre === 'all') {
-    displayBooks(bookData); // Show all books when 'all' is selected
-  } else {
-    filterBooksByGenre(selectedGenre);
-  }
+document.addEventListener("keydown", function (event) {
+handleKeydown(event);
 });
 
-document.getElementById('searchInput').addEventListener('input', (event) => {
-  const searchQuery = event.target.value.trim();
-  if (searchQuery === '') {
-    displayBooks(bookData); // Show all books when the search field is empty
-  } else {
-    searchBooks(searchQuery);
-  }
-});
+performSearch();
