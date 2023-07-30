@@ -4,7 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "working"
+    "test": "working" ,
+    "start": "live-server" 
   },
   "keywords": [],
   "author": "",
